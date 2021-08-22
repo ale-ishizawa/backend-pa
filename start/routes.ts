@@ -15,16 +15,13 @@ Route.group(() => {
   Route.put('user-types/:id', 'UserTypesController.update')
 
   //Sector
-  Route.post('sectors', 'SectorsController.store')
-  Route.get('sectors', 'SectorsController.index')
-  Route.get('sectors/:id', 'SectorsController.show')
-  Route.put('sectors/:id', 'SectorsController.update')
+
+  Route.put('sectors/many', 'SectorsController.updateMany')
+  Route.resource('sectors', 'SectorsController').apiOnly().except(['destroy'])
 
   //Position
-  Route.post('positions', 'PositionsController.store')
-  Route.get('positions', 'PositionsController.index')
-  Route.get('positions/:id', 'PositionsController.show')
-  Route.put('positions/:id', 'PositionsController.update')
+  Route.put('positions/many', 'PositionsController.updateMany')
+  Route.resource('positions', 'PositionsController').apiOnly().except(['destroy'])
 
   //Category
   Route.post('categories', 'CategoriesController.store')
