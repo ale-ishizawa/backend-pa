@@ -24,10 +24,8 @@ Route.group(() => {
   Route.resource('positions', 'PositionsController').apiOnly().except(['destroy'])
 
   //Category
-  Route.post('categories', 'CategoriesController.store')
-  Route.get('categories', 'CategoriesController.index')
-  Route.get('categories/:id', 'CategoriesController.show')
-  Route.put('categories/:id', 'CategoriesController.update')
+  Route.put('categories/many', 'CategoriesController.updateMany')
+  Route.resource('categories', 'CategoriesController').apiOnly().except(['destroy'])
 
   //Client
   Route.post('clients', 'ClientsController.store')
