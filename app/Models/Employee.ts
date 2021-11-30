@@ -19,6 +19,9 @@ export default class Employee extends BaseModel {
   public email: string
 
   @column()
+  public discProfile: string
+
+  @column()
   public urlPhoto: string
 
   @column()
@@ -56,5 +59,4 @@ export default class Employee extends BaseModel {
 
   @belongsTo(() => Manager)
   public manager: BelongsTo<typeof Manager>
-
 }

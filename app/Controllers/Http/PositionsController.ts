@@ -36,7 +36,7 @@ export default class PositionsController {
   public async updateMany({ request, response }: HttpContextContract) {
     try {
       const positions = request.input('ids')
-      const update = await Position.query().whereIn('id', positions).update({ status: false })
+      await Position.query().whereIn('id', positions).update({ status: false })
       return response.status(201).send({ success: true })
     } catch (error) {
       return response.badRequest('Erro ao excluir cargos.')

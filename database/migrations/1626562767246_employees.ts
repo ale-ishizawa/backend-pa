@@ -3,7 +3,7 @@ import BaseSchema from '@ioc:Adonis/Lucid/Schema'
 export default class Employees extends BaseSchema {
   protected tableName = 'employees'
 
-  public async up () {
+  public async up() {
     this.schema.createTable(this.tableName, (table) => {
       table.increments('id')
       table.string('name', 60).notNullable()
@@ -13,6 +13,7 @@ export default class Employees extends BaseSchema {
       table.timestamp('admission', { useTz: false })
       table.timestamp('resignation', { useTz: false })
       table.string('url_photo', 255)
+      table.string('disc_profile', 1).nullable()
       table.integer('sector_id').unsigned().references('sectors.id').notNullable()
       table.integer('position_id').unsigned().references('positions.id').notNullable()
       table.integer('client_id').unsigned().references('clients.id').nullable()
@@ -25,7 +26,7 @@ export default class Employees extends BaseSchema {
     })
   }
 
-  public async down () {
+  public async down() {
     this.schema.dropTable(this.tableName)
   }
 }

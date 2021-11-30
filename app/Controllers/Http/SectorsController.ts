@@ -39,7 +39,7 @@ export default class SectorsController {
   public async updateMany({ request, response }: HttpContextContract) {
     try {
       const sectors = request.input('ids')
-      const update = await Sector.query().whereIn('id', sectors).update({ status: false })
+      await Sector.query().whereIn('id', sectors).update({ status: false })
       return response.status(201).send({ success: true })
     } catch (error) {
       return response.badRequest('Erro ao atualizar/excluir setor.')

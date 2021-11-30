@@ -2,6 +2,7 @@ import Route from '@ioc:Adonis/Core/Route'
 
 Route.group(() => {
   Route.post('login', 'AuthController.login')
+  Route.post('logout', 'AuthController.logout')
   //User
   Route.post('users', 'UsersController.store')
   Route.get('users', 'UsersController.index')
@@ -34,6 +35,8 @@ Route.group(() => {
   Route.put('clients/:id', 'ClientsController.update')
 
   //Employee
+  Route.get('employees/disc', 'EmployeesController.getProfilesDisc')
+  Route.put('employees/many', 'EmployeesController.updateMany')
   Route.resource('employees', 'EmployeesController').apiOnly().except(['destroy'])
 
   //Manager
